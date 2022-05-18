@@ -1,3 +1,8 @@
-def test_example():
-    assert "Hello" == "Hello"
-    
+import pytest
+from selenium.webdriver.common.keys import Keys
+
+
+
+@pytest.mark.selenium
+def test_admin_login(chrome_browser_instance):
+    pass
