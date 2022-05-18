@@ -1,4 +1,6 @@
 venv
+.pytest_cache
+__pycache__
 ecommerce/dashboard/migrations
 ecommerce/dashboard/__pycache__
 ecommerce/dashboard/tests/__pycache__
