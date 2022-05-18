@@ -1,7 +1,8 @@
 chromedriver.exe
 venv
-.pytest_cache
 db.sqlite3
+.pytest_cache
+.env
 __pycache__
 ecommerce/dashboard/migrations
 ecommerce/dashboard/__pycache__
