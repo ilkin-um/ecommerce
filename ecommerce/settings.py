@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "ecommerce.dashboard",
     "ecommerce.inventory",
+    "ecommerce.demo",
     "mptt",
 ]
 

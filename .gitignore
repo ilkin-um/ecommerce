@@ -11,4 +11,5 @@ ecommerce/dashboard/migrations
 ecommerce/dashboard/__pycache__
 ecommerce/dashboard/tests/__pycache__
 ecommerce/inventory/migrations
+ecommerce/demo/migrations
 
