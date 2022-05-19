@@ -17,7 +17,7 @@ def test_admin_login(live_server,db_fixture_setup,chrome_browser_instance):
     """
 
     user = User.objects.get(id=1)
-    print(user.password)
+    print(user.password) 
     browser = chrome_browser_instance
     browser.get(("%s%s" % (live_server.url,"/admin/login/")))
 

@@ -3,9 +3,12 @@ venv
 db.sqlite3
 .pytest_cache
 .env
+.vscode
 __pycache__
+ecommerce/__pycache__
+ecommerce/.pytest_cache
 ecommerce/dashboard/migrations
 ecommerce/dashboard/__pycache__
 ecommerce/dashboard/tests/__pycache__
-ecommerce/__pycache__
-ecommerce/.pytest_cache
+ecommerce/inventory/migrations
+
