@@ -1,5 +1,12 @@
+from math import prod
+from psycopg2 import IntegrityError
 import pytest
 from ecommerce.inventory import models
+
+
+"""
+Category table tests
+"""
 
 
 @pytest.mark.dbfixture
@@ -34,6 +41,11 @@ def test_inventory_db_category_insert(db, category_factory, slug, is_active):
     print(result.name)
     assert result.slug == slug
     assert result.is_active == is_active
+
+
+"""
+Product table tests
+"""
 
 
 @pytest.mark.dbfixture
@@ -71,3 +83,21 @@ def test_inventory_db_product_dbfixture(
     assert result.name == name
     assert result.slug == slug
     assert result_created_at == created_at
+
+
+def test_inventory_db_product_is_unique(db, product_factory):
+    new_id = 3312353
+    new_web_id = product_factory.create(web_id=new_id)
+
+    with pytest.raises(IntegrityError):
+        product_factory.create(web_id=new_id)
+
+
+@pytest.mark.dbfixture
+def test_inventory_db_product_insert(db, product_factory, category_factory):
+    new_category = category_factory.create()
+    new_product = product_factory.create(category=(1, 18))
+    num_of_product_categories = new_product.category.all().count()
+
+    assert "web_id_" in new_product.web_id
+    assert num_of_product_categories == 2
