@@ -5,11 +5,5 @@ db.sqlite3
 .env
 .vscode
 __pycache__
-ecommerce/__pycache__
-ecommerce/.pytest_cache
-ecommerce/dashboard/migrations
-ecommerce/dashboard/__pycache__
-ecommerce/dashboard/tests/__pycache__
-ecommerce/inventory/migrations
-ecommerce/demo/migrations
+migrations
 
