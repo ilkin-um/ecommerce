@@ -112,6 +112,87 @@ class Product(models.Model):
         return self.name
 
 
+class ProductType(models.Model):
+    """
+    Product type table
+    """
+
+    name = models.CharField(
+        max_length=255,
+        unique=True,
+        null=False,
+        blank=False,
+        verbose_name=_("type of product"),
+        help_text=_("format: required, unique, max-255"),
+    )
+
+    def __str__(self):
+        return self.name
+
+
+class Brand(models.Model):
+    """
+    Product brand table
+    """
+
+    name = models.CharField(
+        max_length=255,
+        unique=True,
+        null=False,
+        blank=False,
+        verbose_name=_("brand name"),
+        help_text=_("format: required, unique, max-255"),
+    )
+
+
+class ProductAttribute(models.Model):
+    """
+    Product attribute table
+    """
+
+    name = models.CharField(
+        max_length=255,
+        unique=True,
+        null=False,
+        blank=False,
+        verbose_name=_("product attribute name"),
+        help_text=_("format: required, unique, max-255"),
+    )
+    description = models.TextField(
+        unique=False,
+        null=False,
+        blank=False,
+        verbose_name=_("product attribute description"),
+        help_text=_("format: required"),
+    )
+
+    def __str__(self):
+        return self.name
+
+
+class ProductAttributeValue(models.Model):
+    """
+    Product attribute value table
+    """
+
+    product_attribute = models.ForeignKey(
+        ProductAttribute,
+        related_name="product_attribute",
+        on_delete=models.PROTECT,
+    )
+    attribute_value = models.CharField(
+        max_length=255,
+        unique=False,
+        null=False,
+        blank=False,
+        verbose_name=_("attribute value"),
+        help_text=_("format: required, max-255"),
+    )
+
+    def __str__(self):
+        return f"{self.product_attribute.name} : {self.attribute_value}"
+
+
 class ProductInventory(models.Model):
     """
     Product inventory table
