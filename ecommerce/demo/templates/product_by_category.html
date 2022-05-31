@@ -16,11 +16,10 @@
   <ul>
     {% for x in data %}
       <li class="text-capitalize">
-      {{x.name}}
+      {{x.name}} [<a href="{% url 'demo:product_detail' slug=x.slug %}">view product</a>]
       </li>
       <ul class="list-unstyled">
-      <li>{{x.id}}</li>
-      <li>Price: £{{x.product__store_price}}</li>
+      <li>Price: {{x.product__store_price}}</li>
       </ul>
     {% endfor %}
   </ul>

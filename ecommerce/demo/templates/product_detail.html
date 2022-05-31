@@ -1,0 +1,12 @@
+<h1>Product Details</h1>
+
+<ul>
+    {% for x in data %}
+    <li>{{x.product__name}}</li>
+    <li>{{x.sku}}</li>
+    <li>Number of items: {{x.product_inventory__units}}</li>
+    <li>Price: {{x.store_price}}</li>
+
+    
+    {% endfor %}
+</ul>

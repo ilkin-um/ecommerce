@@ -12,4 +12,5 @@ urlpatterns = [
         views.product_by_category,
         name="product_by_category",
     ),
+    path("<slug:slug>", views.product_detail, name="product_detail"),
 ]
