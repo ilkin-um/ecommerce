@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "ecommerce.inventory",
     "ecommerce.demo",
     "mptt",
+    "django_elasticsearch_dsl",
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,5 @@ USE_L10N = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = "/static/"
+
+ELASTICSEARCH_DSL = {"default": {"hosts": "localhost:9200"}}

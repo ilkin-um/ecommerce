@@ -63,7 +63,6 @@ def product_detail(request, slug):
             "attribute_values__attribute_value",
         )
     )
-
     z = (
         models.ProductTypeAttribute.objects.filter(
             product_type__product_type__product__slug=slug
