@@ -128,3 +128,5 @@ USE_L10N = True
 STATIC_URL = "/static/"
 
 ELASTICSEARCH_DSL = {"default": {"hosts": "localhost:9200"}}
+
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
