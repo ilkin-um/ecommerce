@@ -132,3 +132,8 @@ STATIC_URL = "/static/"
 ELASTICSEARCH_DSL = {"default": {"hosts": "localhost:9200"}}
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
+    "PAGE_SIZE": 10,
+}
