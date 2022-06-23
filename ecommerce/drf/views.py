@@ -1,20 +1,25 @@
+from django.shortcuts import get_object_or_404
+from ecommerce.drf.serializer import ProductInventorySerializer
+from ecommerce.inventory.models import Product, ProductInventory
+from rest_framework import mixins, permissions, viewsets
 from rest_framework.response import Response
-from rest_framework import viewsets, permissions, mixins
-from ecommerce.inventory.models import Product
-from ecommerce.drf.serializer import AllProducts
 
 
-class AllProductsViewSet(
-    viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin
+class ProductByCategory(
+    viewsets.GenericViewSet,
+    mixins.ListModelMixin,
 ):
+    """
+    API endpoint that returns products by category
+    """
 
-    queryset = Product.objects.all()
-    serializer_class = AllProducts
-    lookup_field = "slug"
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = ProductInventory.objects.all()
 
-    def retrieve(self, request, slug=None):
-        queryset = Product.objects.filter(category__slug=slug)[:10]
-        serializer = AllProducts(queryset, many=True)
-
+    def list(self, request, slug=None):
+        queryset = ProductInventory.objects.filter(
+            product__category__slug=slug,
+        ).filter(is_default=True)[:10]
+        serializer = ProductInventorySerializer(
+            queryset, context={"request": request}, many=True
+        )
         return Response(serializer.data)

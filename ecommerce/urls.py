@@ -19,7 +19,9 @@ from rest_framework import routers
 from ecommerce.drf import views
 
 router = routers.DefaultRouter()
-router.register(r"api/products", views.AllProductsViewSet, basename="allproducts")
+router.register(
+    r"product/(?P<slug>[^/.]+)", views.ProductByCategory, basename="allproducts"
+)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
