@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "ecommerce"
+version = "0.1.0"
+description = ""
+authors = ["ilkin-um <ilkinum@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django= "3.2.8"
+django-elasticsearch-dsl="7.2.2"
+djangorestframework="3.13.1"
+elasticsearch="7.17.4"
+elasticsearch-dsl="7.4.0"
+factory-boy="3.2.0"
+Faker="9.5.2"
+psycopg2-binary="2.9.2"
+python-decouple="3.6"
+selenium="4.0.0"
+django-mptt="0.13.4"
+Pillow="8.4.0"
+
+[tool.poetry.dev-dependencies]
+pytest="6.2.5"
+pytest-django="4.4.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
