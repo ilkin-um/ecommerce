@@ -46,16 +46,15 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    category = CategorySerializer(many=True)
-
     class Meta:
         model = Product
-        fields = ["web_id", "slug", "name", "description", "category"]
+        fields = ["name"]
         read_only = True
         editable = False
 
 
 class ProductInventorySerializer(serializers.ModelSerializer):
+    """
     product = ProductSerializer(many=False, read_only=True)
     image = MediaSerializer(source="media_product_inventory", many=True, read_only=True)
     type = ProductTypeSerializer(source="product_type", many=False, read_only=True)
@@ -66,17 +65,17 @@ class ProductInventorySerializer(serializers.ModelSerializer):
     price = serializers.DecimalField(
         source="retail_price", max_digits=5, decimal_places=2
     )
+    """
+
+    product = ProductSerializer(many=False, read_only=True)
 
     class Meta:
         model = ProductInventory
         fields = [
+            "id",
             "sku",
-            "price",
+            "store_price",
             "is_default",
             "product",
-            "image",
-            "type",
-            "brand",
-            "attributes",
         ]
         read_only = True

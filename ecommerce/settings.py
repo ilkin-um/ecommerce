@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "ecommerce.inventory",
     "ecommerce.demo",
     "ecommerce.drf",
+    "ecommerce.search",
     "mptt",
     "django_elasticsearch_dsl",
     "rest_framework",
@@ -137,3 +138,5 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 10,
 }
+
+ELASTICSEARCH_DSL = {"default": {"hosts": "localhost:9200"}}
