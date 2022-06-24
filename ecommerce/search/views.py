@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from elasticsearch_dsl import Q
 from rest_framework.views import APIView
 from rest_framework.pagination import LimitOffsetPagination
-from ecommerce.drf.serializer import ProductInventorySerializer, ProductSerializer
+from ecommerce.drf.serializer import ProductInventorySerializer
 from ecommerce.search.documents import ProductInventoryDocument
 
 
@@ -14,7 +14,10 @@ class SearchProductInventory(APIView, LimitOffsetPagination):
     def get(self, request, query):
         try:
             q = Q(
-                "multi_match", query=query, fields=["product.name"], fuzziness="auto"
+                "multi_match",
+                query=query,
+                fields=["product.name"],
+                fuzziness="auto",  # autocorrection of words
             ) & Q(
                 "bool",
                 should=[
