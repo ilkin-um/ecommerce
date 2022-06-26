@@ -1,7 +1,5 @@
 # Django Ecommerce Application
 
-Developed with Test Driven Development approach. Technologies used: Django, Docker, PostgreSQL, Elasticsearch.
-
 To run the application:
 - Download the project and move to the project directory
 - Create a virtual environment: ` python -m venv venv `
