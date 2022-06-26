@@ -4,10 +4,10 @@ Developed with Test Driven Development approach. Technologies used: Django, Dock
 
 To run the application:
 - Download the project and move to the project directory
-- Create a virtual environment: <sub>python -m venv venv </sub>
-- Activate the virtual environment: <sub> venv\Scripts\Activate </sub>
-- Install poetry: <sub> pip install poetry</sub>
-- Install dependencies specified in pyproject.toml : <sub>poetry update </sub>
-- Create and run Docker container: <sub> docker-compose up -d </sub>
-- Load predefined fixtures into the dockerized PostgreSQL: <sub> python manage.py load-fixtures </sub>
-- Run the application: <sub>python manage.py runserver </sub>
+- Create a virtual environment: ` python -m venv venv `
+- Activate the virtual environment: ` venv\Scripts\Activate `
+- Install poetry: ` pip install poetry `
+- Install dependencies specified in pyproject.toml : ` poetry update `
+- Create and run Docker container: ` docker-compose up -d `
+- Load predefined fixtures into the dockerized PostgreSQL: ` python manage.py load-fixtures `
+- Run the application: ` python manage.py runserver `
